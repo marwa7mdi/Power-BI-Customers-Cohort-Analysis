@@ -1,0 +1,7 @@
+let
+    Source = FactSales,
+    #"Grouped Rows" = Table.Group(Source, {"Customer ID"}, {{"First Transaction Month", each List.Min([InvoiceDate]), type nullable date}}),
+    Custom1 = Table.TransformColumns(#"Grouped Rows",{"First Transaction Month", Date.StartOfMonth,Date.Type}
+)
+in
+    Custom1
