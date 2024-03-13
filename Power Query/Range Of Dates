@@ -1,0 +1,14 @@
+//open blank query name it StartDate
+let
+    Source = #date(2009,01,01)
+in
+    Source
+//open blank query name it EndDate
+let
+    Source = #date(2012,01,01)
+in
+    Source
+//open blank query to create a range of numbers between the specified start and end date ,you can use it for numbers
+= {Number.From(StartDate)..Number.From(EndDate)}
+//convert to Table 
+//change to date type
