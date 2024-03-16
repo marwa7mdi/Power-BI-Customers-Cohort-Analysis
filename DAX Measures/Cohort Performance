@@ -1,0 +1,11 @@
+Cohort Performance = 
+VAR _mindate=MIN(DimDate[Start of Month])
+VAR _maxdate=MAX(DimDate[Start of Month])
+RETURN
+CALCULATE(
+    [Active Customers],
+    REMOVEFILTERS(DimDate[Start of Month]),
+    RELATEDTABLE(DimCustomer),
+    DimCustomer[First Transaction Month]>=_mindate
+    && DimCustomer[First Transaction Month]<= _maxdate
+)
