@@ -1,0 +1,19 @@
+Resurrected Customers = 
+VAR _customerthismonth =
+    VALUES(FactSales[Customer ID])
+VAR _customerlastmonth =
+    CALCULATETABLE(
+        VALUES(FactSales[Customer ID]),
+        PREVIOUSMONTH(DimDate[Start of Month])
+    )
+VAR _Newcustomers=
+    CALCULATETABLE(
+        VALUES(FactSales[Customer ID]),
+        FactSales[Months Since First Transaction]=0
+    )
+    VAR _Resurrectedcustomers=EXCEPT(
+    EXCEPT( _customerthismonth,_customerlastmonth),
+         _Newcustomers)
+        
+           
+RETURN COUNTROWS(_Resurrectedcustomers)
