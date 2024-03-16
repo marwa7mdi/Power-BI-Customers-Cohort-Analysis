@@ -1,0 +1,7 @@
+Churn Customers = 
+SWITCH(
+    TRUE(),
+    ISBLANK([Retention Rate]),
+    BLANK(),
+    [New Customers] - [Cohort Performance]
+)   
