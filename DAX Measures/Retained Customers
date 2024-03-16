@@ -1,0 +1,12 @@
+Retained Customers = 
+VAR _customerthismonth =
+    VALUES(FactSales[Customer ID])
+VAR _customerlastmonth =
+    CALCULATETABLE(
+        VALUES(FactSales[Customer ID]),
+        PREVIOUSMONTH(DimDate[Start of Month])
+    )
+    VAR _Retainedcustomers=
+    INTERSECT(_customerlastmonth,
+            _customerthismonth)
+RETURN COUNTROWS(_Retainedcustomers)
