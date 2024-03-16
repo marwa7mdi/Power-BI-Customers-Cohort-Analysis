@@ -1,0 +1,1 @@
+Active Customers = DISTINCTCOUNT(FactSales[Customer ID])
