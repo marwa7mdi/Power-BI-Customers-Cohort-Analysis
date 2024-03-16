@@ -1,0 +1,2 @@
+churn Rate = 
+    DIVIDE([Churn Customers],[New Customers])
