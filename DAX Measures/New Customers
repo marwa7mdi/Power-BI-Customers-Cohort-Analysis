@@ -1,0 +1,5 @@
+New Customers = 
+CALCULATE(
+        [Active Customers],
+        FactSales[Months Since First Transaction]=0
+        )
