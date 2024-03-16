@@ -1,0 +1,2 @@
+Retention Rate = 
+DIVIDE([Cohort Performance],[New Customers])
